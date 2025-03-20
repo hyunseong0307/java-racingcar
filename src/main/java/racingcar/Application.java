@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -19,6 +20,28 @@ public class Application {
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("숫자를 입력해야 합니다.");
         }
+    }
+}
+class Car{
+    private final String carName;
+    private int position;
+
+    private Car(String carName){
+        this.carName = carName;
+        this.position = 0;
+    }
+
+    public void move(){
+        if(Randoms.pickNumberInRange(0,9)>=4)
+            position++;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return carName;
     }
 }
 
