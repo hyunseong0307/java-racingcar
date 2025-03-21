@@ -33,6 +33,14 @@ public class Application {
         }
     }
 
+    //차 움직이기
+    private static void playGames(List<Car> cars, int attempts){
+        for(int i = 0; i < attempts; i++){
+            for(Car car : cars){
+                car.move();
+            }
+        }
+    }
 
 }
 class Car{
