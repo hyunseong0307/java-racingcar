@@ -10,7 +10,9 @@ public class Application {
     public static void main(String[] args) {
         List<Car> cars = inputCarNames();
         int attempts = inputAttemptCount();
+        System.out.println("\n실행 결과");
         playGames(cars, attempts);
+        printWinners(cars);
 
     }
 
@@ -21,6 +23,10 @@ public class Application {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {
+            carName = carName.trim();
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
             cars.add(new Car(carName));
         }
         return cars;
@@ -44,12 +50,39 @@ public class Application {
             printCurrentCarPosition(cars);
         }
     }
+
+    //경주 후 차위치 출력
     private static void printCurrentCarPosition(List<Car> cars) {
         for(Car car : cars) {
             System.out.print(car.getName() + " : ");
             car.printSlash();
         }
         System.out.println();
+    }
+
+    //우승자 출력
+    private static void printWinners(List<Car> cars) {
+        int fastest = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > fastest) {
+                fastest = car.getPosition();
+            }
+        }
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == fastest) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        for (int i=0; i<winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if(i < winners.size()-1) {
+                System.out.print(", ");
+            }
+        }
     }
 }
 
