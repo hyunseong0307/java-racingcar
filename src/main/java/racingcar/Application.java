@@ -13,7 +13,6 @@ public class Application {
         System.out.println("\n실행 결과");
         playGames(cars, attempts);
         printWinners(cars);
-
     }
 
     private static List<Car> inputCarNames() {
@@ -115,6 +114,4 @@ class Car {
         System.out.println();
     }
 }
-
-
 
