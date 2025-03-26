@@ -4,11 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String carName;
-    private int position;
+    private int position = 0;
 
     public Car(String carName) {
         this.carName = carName;
-        this.position = 0;
     }
 
     public void move() {
@@ -22,12 +21,5 @@ public class Car {
 
     public String getName() {
         return carName;
-    }
-
-    public void printSlash(){
-        for(int i=0; i < position ; i++) {
-            System.out.print("- ");
-        }
-        System.out.println();
     }
 }
