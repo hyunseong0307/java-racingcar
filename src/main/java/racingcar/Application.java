@@ -13,7 +13,6 @@ public class Application {
         RacingGame game = new RacingGame(cars);
         System.out.println("\n실행 결과");
         game.play(attempts);
-        printer.printCurrentCarPosition(cars);
         printer.printWinners(game.findWinners());
     }
 

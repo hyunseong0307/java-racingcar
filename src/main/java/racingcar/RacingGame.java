@@ -5,16 +5,15 @@ import java.util.List;
 
 public class RacingGame {
     private final List<Car> cars;
-
+    private final RacingResultPrinter printer = new RacingResultPrinter();
     public RacingGame(List<Car> cars) {
         this.cars = cars;
     }
 
     public void play(int attempts) {
         for (int i = 0; i < attempts; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
+            cars.forEach(Car::move);
+            printer.printCurrentCarPosition(cars);
         }
     }
 
